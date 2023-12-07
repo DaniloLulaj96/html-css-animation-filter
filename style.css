@@ -2,42 +2,138 @@
     width: 100px;
     height: 100px;
     border: 1px solid red;
+    background-color: red;
+    transition: background-color 0.5s ease; /*Aggiunge transizione graduale di 0.5 secondi*/
 }
+
+.ex-1-square:hover {
+    background-color: darkred; /*cambia  il colore al passaggio del mouse*/
+}
+
 .ex-2-square {
     width: 100px;
     height: 100px;
     background: red;
+    transition: 5s; /*Aggiunge transizione graduale di 1 secondo*/
 }
+
+.ex-2-square:hover {
+    width: 100%; /*cambia lo stato da quadrato a rettangolo*/
+    border-radius: 16px; /*cambia i bordi e diventano angolari*/
+}
+
 .ex-3-square {
     width: 100px;
     height: 100px;
     background: red;
+    transition: 5s; /*Aggiunge transizione graduale di 5 secondi*/
 }
+
+.ex-3-square:hover {
+    border-radius: 50%; /*da quadrato diventa cerchio*/
+}
+
 .ex-4-square {
     width: 100px;
     height: 100px;
     background: red;
+    transition: 5s; /*Aggiunge transizione di 5 secondi*/
 }
+
+.ex-4-square:hover {
+    opacity: 0; /*fa scomparire il quadrato*/
+}
+
 .ex-5-square {
     margin: 20px;
     width: 60px;
     height: 60px;
     background: red;
+    transition: 1s ease; /*Aggiunge transizione di 1 secondo*/
 }
+
+.ex-5-square:hover {
+    transform: scale(1.1); /*al passaggio del mouse diventa più grande*/
+}
+
+.ex-5-square:active{
+    transform: scale(0.8); /*al click del mouse diventa più piccolo*/
+}
+
 .ex-6-img, .ex-7-img, .ex-8-img {
     width: 500px;
+}
+
+.ex-6-img {
+    transition: 5s; /*Aggiunge transizione di 5 secondi*/
+}
+
+
+.ex-6-img:hover {
+    filter: grayscale(); /*filtro bianco e nero*/
+}
+
+.ex-8-img {
+    transition: 5s; /*Aggiunge Transizione di 5 secondi*/
+}
+
+.ex-8-img:hover{
+    filter: grayscale();/*filtro bianco e nero*/
+    transform: scale(1.1);/*immagine si ingrandisce*/
+    border-radius: 64px;/*bordi si arrotondano*/
 }
 
 .ex-9-img {
     margin: 50px 100px;
     width: 400px;
 }
+
+.ex-9-img {
+    transition: 5s;
+}
+
+.ex-9-img:hover{
+    filter: grayscale();
+    transform: scale(1.1);
+    border-radius: 32px;
+}
+
 .ex-10-icon {
     font-size: 60px;
+    animation: rotate 2s linear infinite; /*Applica animazione di rotazione*/
 }
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg); /*angolo iniziale*/
+    }
+    100%{
+        transform: rotate(360deg); /*angolo finale (completa una rotazione) */
+    }
+}
+
 .ex-11-icon {
     font-size: 60px;
+    }
+
+.ex-11-icon:hover {
+    animation: rotate-hover 2s ease forwards;
 }
+
+@keyframes rotate-hover {
+    0%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+
 .ex-12-button, .ex-13-button {
     position: relative;
     display: block;
@@ -66,4 +162,97 @@
     background: #f5f5f5;
     width: 60px;
     height: 20px;
+}
+
+.ex-12-button:hover .ex-12-top-white {
+    animation-name: border-cover-12-top; /*nome dell'animazione*/
+    animation-duration: 2s; /*durata dell'animazione*/
+    animation-timing-function: linear; /*è un animazione lineare non si ripete infatti fa avanti e indietro e poi si ferma*/
+}
+
+.ex-12-button:hover .ex-12-bottom-white {
+    animation-name: border-cover-12-bottom; /*nome dell'animazione*/
+    animation-duration: 2s; /*durata dell'animazione*/
+    animation-timing-function: linear; /*è un animazione lineare non si ripete infatti fa avanti e indietro e poi si ferma*/
+}
+
+@keyframes border-cover-12-top {
+    0% { /*è il punto di partenza*/
+        position: absolute;
+        top: -10px;
+        left: 10%;
+    }
+    50% { /*è il punto di arrivo, ma mettiamo 50%, perchè vogliamo che poi dopo torni indietro*/
+        position: absolute;
+        top: -10px;
+        left: 70%;
+    }
+
+}
+
+@keyframes border-cover-12-bottom {
+    0% { /*è il punto di partenza*/
+        position: absolute;
+        bottom: -10px;
+        right:20%;
+    }
+    50% {position: absolute; /*è il punto di arrivo, ma mettiamo 50%, perchè vogliamo che poi dopo torni indietro*/
+        bottom:-10px;
+        right:65%;
+
+    }
+}
+
+.ex-13-button:hover .ex-13-top-white {
+    animation-name: border-cover-12-top; /*nome dell'animazione*/
+    animation-duration: 2s; /*durata dell'animazione*/
+    animation-timing-function: linear; /*è un animazione lineare*/
+}
+
+.ex-13-button:hover .ex-13-bottom-white {
+    animation-name: border-cover-12-bottom; /*nome dell'animazione*/
+    animation-duration: 2s; /*durata dell'animazione*/
+    animation-timing-function: linear; /*è un animazione lineare*/
+}
+
+@keyframes border-cover-13-top {
+    0%{
+        position: absolute;
+        top: -10px;
+        left: -10%;
+    }
+    25%{
+        position: absolute;
+        top: -10px;
+        left: calc(100%-30px);
+    }
+    50%{
+        position: absolute;
+        top: calc(100%-10px);
+        left: calc(100%-30px);
+    }
+    75%{
+        position: absolute;
+        top: calc(100%-10px);
+        left: -30px;
+    }
+    90%{
+        position: absolute;
+        top: -10px;
+        left: -30px;
+    }
+    100%{
+        position: absolute;
+        top: -10px;
+        left: -10%;
+    }
+}
+
+@keyframes border-cover-13-bottom {
+    0%{}
+    25%{}
+    50%{}
+    75%{}
+    90%{}
+    100%{}
 }
